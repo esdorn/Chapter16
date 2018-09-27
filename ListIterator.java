@@ -19,4 +19,23 @@ public interface ListIterator
      */
     public boolean hasNext();
     
+    /**
+     * 
+     */
+    public Object previous();
+    
+    /**
+     * 
+     */
+    public Object get();
+    
+    /**
+     * 
+     */
+    public void add(Object element);
+    
+    /**
+     * 
+     */
+    public Object remove();
 }

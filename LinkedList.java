@@ -42,21 +42,60 @@ public class LinkedList
         
         public boolean hasNext()
         {
-            if (first == null)
+            if (node == null)
                 return first != null;
             else
                 return node.next != null;
         }
         
-        public Object Previous()
+        public Object previous()
         {
-            Object data = node.data;
+            if(!isAfterNext){throw new NoSuchElementException();}
             Node temp = first;
+            node = previous;
             while (temp.next != node)
             {
                 temp = temp.next;
             }
-            node = temp;
+            previous = temp;
+            isAfterNext=true;
+            return node.data;
+        }
+        
+        public Object get()
+        {
+            return node.data;
+        }
+        
+        public void add(Object element)
+        {
+            if (node == null)
+            {
+                addF(element);
+                node = first;
+            }
+            else
+            {
+                Node newNode = new Node();
+                newNode.data = element;
+                newNode.next = node.next;
+                if (newNode.next == null)
+                    last = newNode;
+                previous = node;
+                node.next = newNode;
+                node = node.next;
+            }
+        }
+        
+        public Object remove()
+        {
+            if(!isAfterNext){throw new NoSuchElementException();}
+            Object data = node.data;
+            if (last==node)
+                last = previous;
+            previous.next = node.next;
+            node = previous;
+            isAfterNext=false;
             return data;
         }
     }
@@ -83,16 +122,23 @@ public class LinkedList
     
     public void addL(Object data)
     {
-        Node newNode = new Node();
-        newNode.data = data;
-        Node temp = first;
-        while (temp.next != null)
+        if (first == null)
         {
-            temp = temp.next;
+            addF(data);
         }
-        newNode.next = temp.next;
-        temp.next = newNode;
-        last = newNode;
+        else
+        {
+            Node newNode = new Node();
+            newNode.data = data;
+            Node temp = first;
+            while (temp.next != null)
+            {
+                temp = temp.next;
+            }
+            newNode.next = temp.next;
+            temp.next = newNode;
+            last = newNode;
+        }
     }
     
     public Object getF()
@@ -118,8 +164,14 @@ public class LinkedList
     public Object removeL()
     {
         if(first == null){throw new NoSuchElementException();}
-        Object data = first.data;
-        first = first.next;
+        Object data = last.data;
+        Node temp=first;
+        while (temp.next != last)
+        {
+            temp = temp.next;
+        }
+        temp.next = last.next;
+        last = temp;
         return data;
     }
     
