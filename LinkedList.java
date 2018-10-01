@@ -7,9 +7,9 @@ import java.util.NoSuchElementException;
  */
 public class LinkedList
 {
-    /** description of instance variable x (add comment for each instance variable) */
     private Node first;
     private Node last;
+    private int currentSize;
     class Node
     {
         Object data;
@@ -83,6 +83,7 @@ public class LinkedList
                     last = newNode;
                 previous = node;
                 node.next = newNode;
+                currentSize--;
                 node = node.next;
             }
         }
@@ -96,6 +97,7 @@ public class LinkedList
             previous.next = node.next;
             node = previous;
             isAfterNext=false;
+            currentSize--;
             return data;
         }
     }
@@ -106,6 +108,7 @@ public class LinkedList
     public LinkedList()
     {
         // initialise instance variables
+        currentSize = 0;
         first = null;
         last = null;
     }
@@ -117,6 +120,7 @@ public class LinkedList
         newNode.next = first;
         if (newNode.next == null)
             last = newNode;
+        currentSize++;
         first = newNode;
     }
     
@@ -137,6 +141,7 @@ public class LinkedList
             }
             newNode.next = temp.next;
             temp.next = newNode;
+            currentSize++;
             last = newNode;
         }
     }
@@ -158,6 +163,7 @@ public class LinkedList
         if(first == null){throw new NoSuchElementException();}
         Object data = first.data;
         first = first.next;
+        currentSize--;
         return data;
     }
     
@@ -172,7 +178,13 @@ public class LinkedList
         }
         temp.next = last.next;
         last = temp;
+        currentSize--;
         return data;
+    }
+    
+    public int size()
+    {
+        return currentSize;
     }
     
     public String toString()
