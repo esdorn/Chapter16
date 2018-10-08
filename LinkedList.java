@@ -187,6 +187,27 @@ public class LinkedList
         return currentSize;
     }
     
+    public void reverse()
+    {
+        if (currentSize <=1);
+        else
+        {
+            Node p = first;
+            Node c = first.next;
+            Node t = c.next;
+            first.next = null;
+            last = p;
+            while (c!=null)
+            {
+                t = c.next;
+                c.next = p;
+                p = c;
+                c = t;
+            }
+            first = p;
+        }
+    }
+    
     public String toString()
     {
         Node temp = first;

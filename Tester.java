@@ -24,5 +24,7 @@ public class Tester
         System.out.println(iter.get());
         iter.add("test5");
         System.out.println(test);
+        test.reverse();
+        System.out.println(test);
     }
 }
