@@ -1,7 +1,3 @@
- 
-
-import java.util.LinkedList;
-import java.util.ListIterator;
 
 /**
    This program demonstrates the LinkedList class.
@@ -10,19 +6,19 @@ public class LinkedListWork
 {
    public static void main(String[] args)
    {
-
-       words.addLast("Aggressive");
-       words.addLast("Brown");
-       words.addLast("Cool");
-       words.addLast("Dusty");
-       words.addFirst("Sane");
-       words.addFirst("Purple");
-       words.addFirst("Few");
-       words.addFirst("Dull");
-       words.addLast("Salty");
-       words.addLast("Modern");
-       words.addFirst("Whispering");
-       words.addFirst("Tart");
+       LinkedList words = new LinkedList();
+       words.addL("Aggressive");
+       words.addL("Brown");
+       words.addL("Cool");
+       words.addL("Dusty");
+       words.addF("Sane");
+       words.addF("Purple");
+       words.addF("Few");
+       words.addF("Dull");
+       words.addL("Salty");
+       words.addL("Modern");
+       words.addF("Whispering");
+       words.addF("Tart");
       
       // Print all elements
 
