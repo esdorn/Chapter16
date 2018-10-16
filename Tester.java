@@ -10,7 +10,7 @@ public class Tester
 {
     public static void main()
     {
-        /*
+        /**/
         LinkedList test = new LinkedList();
         test.addL("test1");
         test.addF("test2");
@@ -27,6 +27,11 @@ public class Tester
         System.out.println(test);
         test.reverse();
         System.out.println(test);
+        System.out.println(test.get(0));
+        test.set(3, "test set");
+        System.out.println(test);
+        System.out.println(test.contains("test1"));
+        
         /*
         LinkedListStack test1 = new LinkedListStack();
         test1.push("test1");
@@ -37,7 +42,7 @@ public class Tester
         {
             System.out.println(test1.pop());
         }
-        /**/
+        /*
         LinkedListQueue test2 = new LinkedListQueue();
         test2.add("test1");
         test2.add("test2");

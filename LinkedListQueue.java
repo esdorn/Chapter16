@@ -30,6 +30,19 @@ public class LinkedListQueue
         tail.next = null;
     }
     
+    public void lastToFirst()
+    {
+        Node temp = head;
+        while (temp.next != tail)
+        {
+            temp = temp.next;
+        }
+        temp.next = tail.next;
+        tail.next = head;
+        head = tail;
+        tail = temp;
+    }
+    
     /**
       Checks whether this queue is empty.
       @return true if this queue is empty

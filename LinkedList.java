@@ -158,6 +158,40 @@ public class LinkedList
         return last.data;
     }
     
+    private Node getNode(int n)
+    {
+        Node temp = first;
+        for(int i = 0;i<n;i++)
+        {
+            if (temp.next == null)
+                throw new NoSuchElementException();
+            temp = temp.next;
+        }
+        return temp;
+    }
+    
+    public Object get(int n)
+    {
+        return getNode(n).data;
+    }
+    
+    public void set(int n, Object data)
+    {
+        getNode(n).data = data;
+    }
+    
+    public boolean contains(Object data)
+    {
+        Node temp = first;
+        while (temp != null)
+        {
+            if (temp.data.equals(data))
+                return true;
+            temp = temp.next;
+        }
+        return false;
+    }
+    
     public Object removeF()
     {
         if(first == null){throw new NoSuchElementException();}
